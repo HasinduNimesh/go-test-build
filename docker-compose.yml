@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: bookmarks
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URL=postgres://pguser:pgpassword@db:5432/bookmarks?sslmode=disable
+    depends_on:
+      - db
