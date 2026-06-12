@@ -1,0 +1,11 @@
+myapp/
+├── cmd/server/main.go
+├── internal/handlers/
+├── internal/store/
+├── go.mod
+├── Dockerfile
+├── docker-compose.yaml
+└── k8s/
+    ├── deployment.yaml
+    ├── service.yaml
+    └── configmap.yaml
